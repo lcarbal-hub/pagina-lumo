@@ -5,167 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LÜMØ - Arte Digital para Niños (1°, 2° y 3°)</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        lumoGold: '#F0D53E',
-                        lumoBlue: '#03658C',
-                        lumoCrimson: '#D93D59',
-                        lumoGreen: '#4BD166',
-                        lumoPurple: '#8549BA',
-                        lumoBg: '#FFFDF5'
-                    },
-                    fontFamily: {
-                        title: ['Pangolin', 'cursive'],
-                        body: ['Verdana', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            font-family: 'Verdana', sans-serif;
-            background-color: #FFFDF5;
-            user-select: none;
-        }
-        .font-title {
-            font-family: 'Pangolin', cursive;
-        }
-        ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #03658C;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #D93D59;
-        }
-        .card-bounce {
-            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .card-bounce:hover {
-            transform: translateY(-5px) scale(1.02);
-        }
-        #paintCanvas {
-            touch-action: none;
-            cursor: crosshair;
-        }
-    </style>
-</head>
-<body class="bg-lumoBg text-gray-800 min-h-screen flex flex-col">
-
-    
-    <header class="bg-lumoBlue text-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
-            
-            
-            <div class="flex items-center gap-2 cursor-pointer" onclick="switchTab('textos')">
-                <div class="bg-white rounded-2xl px-3 py-1 shadow-md flex items-center space-x-1">
-                    <span class="font-title text-2xl md:text-3xl font-black text-lumoCrimson">L</span>
-                    <span class="font-title text-2xl md:text-3xl font-black text-lumoGold">Ü</span>
-                    <span class="font-title text-2xl md:text-3xl font-black text-lumoGreen">M</span>
-                    <span class="font-title text-2xl md:text-3xl font-black text-lumoPurple">Ø</span>
-                    <i class="fa-solid fa-palette text-lumoBlue text-lg ml-1"></i>
-                </div>
-            </div>
-<!-- Encabezado de la hoja -->
-            <div class="mb-10 w-full max-w-md flex flex-col items-center">
-                <p class="font-title text-3xl md:text-5xl font-bold text-[#03658C] mt-2 tracking-tight">
-                    ¡BIENVENIDOS!
-                </p>
-            </div>
-
-            <!-- Contenedor de las 3 tarjetas de grado -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
-                
-                <!-- Tarjeta 1° Grado -->
-                <div onclick="selectGrade(1)" class="cursor-pointer bg-white border-3 border-gray-900 rounded-3xl p-6 flex flex-col items-center justify-between card-hover border-[3px] border-gray-900 shadow-md">
-                    <div class="relative my-4 flex justify-center items-center">
-                        <!-- Número 1 estilo libreta -->
-                        <span class="font-number text-9xl font-black text-gray-900 leading-none select-none">1</span>
-                        
-                        <!-- Ojitos animados integrados -->
-                        <div class="absolute top-[18px] right-[-14px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm eye-container">
-                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
-                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5 pupil"></div>
-                            </div>
-                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
-                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5 pupil"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="font-title text-2xl font-extrabold text-lumoGold mt-2">1° Grado</span>
-                </div>
-
-                <!-- Tarjeta 2° Grado -->
-                <div onclick="selectGrade(2)" class="cursor-pointer bg-white border-3 border-gray-900 rounded-3xl p-6 flex flex-col items-center justify-between card-hover border-[3px] border-gray-900 shadow-md">
-                    <div class="relative my-4 flex justify-center items-center">
-                        <!-- Número 2 estilo libreta -->
-                        <span class="font-number text-9xl font-black text-gray-900 leading-none select-none">2</span>
-                        
-                        <!-- Ojitos animados integrados -->
-                        <div class="absolute top-[20px] right-[-10px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm eye-container">
-                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
-                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5 pupil"></div>
-                            </div>
-                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
-                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5 pupil"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="font-title text-2xl font-extrabold text-lumoCrimson mt-2">2° Grado</span>
-                </div>
-
-                <!-- Tarjeta 3° Grado -->
-                <div onclick="selectGrade(3)" class="cursor-pointer bg-white border-3 border-gray-900 rounded-3xl p-6 flex flex-col items-center justify-between card-hover border-[3px] border-gray-900 shadow-md">
-                    <div class="relative my-4 flex justify-center items-center">
-                        <!-- Número 3 estilo libreta -->
-                        <span class="font-number text-9xl font-black text-gray-900 leading-none select-none">3</span>
-                        
-                        <!-- Ojitos animados integrados -->
-                        <div class="absolute top-[18px] right-[-10px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm eye-container">
-                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
-                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5 pupil"></div>
-                            </div>
-                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
-                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5 pupil"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="font-title text-2xl font-extrabold text-lumoPurple mt-2">3° Grado</span>
-                </div>
-
-            </div>
-
-            <!-- Texto explicativo del pie de la hoja -->
-            <p class="font-title text-sm md:text-base text-gray-600 mt-8">
-                Selecciona tu grado para ingresar a la plataforma.
-            </p>
-        </div>
-
-    </main>
-
-            
-    <title>LÜMØ - ¡Bienvenidos!</title>
-    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -205,7 +44,6 @@
         .font-title {
             font-family: 'Pangolin', cursive;
         }
-        /* Estilo de Hoja de Cuaderno Cuadriculada */
         .grid-paper {
             background-color: #ffffff;
             background-image: 
@@ -213,30 +51,48 @@
                 linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
             background-size: 24px 24px;
         }
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #03658C;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D93D59;
+        }
         .card-bounce {
             transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .card-bounce:hover {
-            transform: translateY(-6px) scale(1.02);
+            transform: translateY(-5px) scale(1.02);
+        }
+        #paintCanvas {
+            touch-action: none;
+            cursor: crosshair;
         }
     </style>
 </head>
 <body class="bg-lumoBg text-gray-800 min-h-screen flex flex-col justify-between">
 
-    
+    <!-- Encabezado de la app -->
     <header class="bg-lumoBlue text-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
-            <div class="flex items-center gap-2">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="switchTab('textos')">
                 <div class="bg-white rounded-2xl px-3 py-1 shadow-md flex items-center space-x-1">
-                    <span class="font-title text-2xl font-black text-lumoCrimson">L</span>
-                    <span class="font-title text-2xl font-black text-lumoGold">Ü</span>
-                    <span class="font-title text-2xl font-black text-lumoGreen">M</span>
-                    <span class="font-title text-2xl font-black text-lumoPurple">Ø</span>
+                    <span class="font-title text-2xl md:text-3xl font-black text-lumoCrimson">L</span>
+                    <span class="font-title text-2xl md:text-3xl font-black text-lumoGold">Ü</span>
+                    <span class="font-title text-2xl md:text-3xl font-black text-lumoGreen">M</span>
+                    <span class="font-title text-2xl md:text-3xl font-black text-lumoPurple">Ø</span>
                     <i class="fa-solid fa-palette text-lumoBlue text-lg ml-1"></i>
                 </div>
             </div>
 
-            <!-- Campo Username idéntico al dibujo de la portada -->
             <div class="flex items-center gap-2 bg-white/20 px-4 py-1.5 rounded-full border border-white/30">
                 <i class="fa-solid fa-user text-lumoGold"></i>
                 <span class="font-title text-xs text-yellow-200 uppercase tracking-wider">USERNAME:</span>
@@ -246,65 +102,70 @@
     </header>
 
     <!-- Contenido Principal: Portada estilo Cuaderno -->
-    <main class="flex-1 max-w-4xl w-full mx-auto p-4 md:p-6 flex flex-col justify-center">
+    <main class="flex-1 max-w-4xl w-full mx-auto p-4 md:p-6 flex flex-col justify-center items-center">
 
-        <div class="grid-paper rounded-3xl p-6 md:p-10 border-4 border-gray-400 shadow-2xl flex flex-col items-center text-center relative overflow-hidden">
+        <div class="grid-paper w-full rounded-3xl p-6 md:p-10 border-4 border-gray-400 shadow-2xl flex flex-col items-center text-center relative overflow-hidden">
             
-            <!-- Título y Saludo estilo Cuaderno de la Imagen -->
             <div class="mb-8 w-full max-w-lg">
-                <h1 class="font-title text-6xl md:text-8xl font-black tracking-widest text-gray-800 border-b-4 border-gray-800 pb-2 inline-block">
-                    LÜMØ
-                </h1>
-                <p class="font-title text-3xl md:text-5xl font-bold text-lumoBlue mt-3 tracking-wide">
+                <p class="font-title text-4xl md:text-6xl font-bold text-lumoBlue mt-2 tracking-tight">
                     ¡BIENVENIDOS!
                 </p>
             </div>
 
-            <!-- Contenedores con los números 1, 2 y 3 dibujados -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-2xl my-2">
+            <!-- Contenedor de las 3 tarjetas de grado -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
                 
-                <!-- Tarjeta Número 1 -->
-                <div onclick="selectGrade(1)" class="cursor-pointer bg-white border-4 border-gray-800 rounded-2xl p-6 flex flex-col items-center justify-center card-bounce shadow-md hover:border-lumoGold hover:shadow-lg">
-                    <div class="relative font-title text-8xl font-black text-gray-800 leading-none select-none">
-                        1
-                        <!-- Carita dibujada como en la libreta -->
-                        <div class="absolute top-2 -right-3 flex gap-1 bg-white px-1 py-0.5 rounded-full border-2 border-gray-800">
-                            <div class="w-3 h-3 bg-gray-800 rounded-full"></div>
-                            <div class="w-3 h-3 bg-gray-800 rounded-full"></div>
+                <!-- Tarjeta 1° Grado -->
+                <div onclick="selectGrade(1)" class="cursor-pointer bg-white border-[3px] border-gray-900 rounded-3xl p-6 flex flex-col items-center justify-between card-bounce shadow-md">
+                    <div class="relative my-4 flex justify-center items-center">
+                        <span class="font-title text-8xl font-black text-gray-900 leading-none select-none">1</span>
+                        <div class="absolute top-[18px] right-[-14px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm">
+                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5"></div>
+                            </div>
+                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5"></div>
+                            </div>
                         </div>
                     </div>
-                    <span class="font-title text-xl font-bold text-lumoGold mt-4">1° Grado</span>
+                    <span class="font-title text-2xl font-extrabold text-lumoGold mt-2">1° Grado</span>
                 </div>
 
-                <!-- Tarjeta Número 2 -->
-                <div onclick="selectGrade(2)" class="cursor-pointer bg-white border-4 border-gray-800 rounded-2xl p-6 flex flex-col items-center justify-center card-bounce shadow-md hover:border-lumoCrimson hover:shadow-lg">
-                    <div class="relative font-title text-8xl font-black text-gray-800 leading-none select-none">
-                        2
-                        <!-- Carita dibujada como en la libreta -->
-                        <div class="absolute top-3 -right-3 flex gap-1 bg-white px-1 py-0.5 rounded-full border-2 border-gray-800">
-                            <div class="w-3 h-3 bg-gray-800 rounded-full"></div>
-                            <div class="w-3 h-3 bg-gray-800 rounded-full"></div>
+                <!-- Tarjeta 2° Grado -->
+                <div onclick="selectGrade(2)" class="cursor-pointer bg-white border-[3px] border-gray-900 rounded-3xl p-6 flex flex-col items-center justify-between card-bounce shadow-md">
+                    <div class="relative my-4 flex justify-center items-center">
+                        <span class="font-title text-8xl font-black text-gray-900 leading-none select-none">2</span>
+                        <div class="absolute top-[20px] right-[-10px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm">
+                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5"></div>
+                            </div>
+                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5"></div>
+                            </div>
                         </div>
                     </div>
-                    <span class="font-title text-xl font-bold text-lumoCrimson mt-4">2° Grado</span>
+                    <span class="font-title text-2xl font-extrabold text-lumoCrimson mt-2">2° Grado</span>
                 </div>
 
-                <!-- Tarjeta Número 3 -->
-                <div onclick="selectGrade(3)" class="cursor-pointer bg-white border-4 border-gray-800 rounded-2xl p-6 flex flex-col items-center justify-center card-bounce shadow-md hover:border-lumoPurple hover:shadow-lg">
-                    <div class="relative font-title text-8xl font-black text-gray-800 leading-none select-none">
-                        3
-                        <!-- Carita dibujada como en la libreta -->
-                        <div class="absolute top-4 -right-3 flex gap-1 bg-white px-1 py-0.5 rounded-full border-2 border-gray-800">
-                            <div class="w-3 h-3 bg-gray-800 rounded-full"></div>
-                            <div class="w-3 h-3 bg-gray-800 rounded-full"></div>
+                <!-- Tarjeta 3° Grado -->
+                <div onclick="selectGrade(3)" class="cursor-pointer bg-white border-[3px] border-gray-900 rounded-3xl p-6 flex flex-col items-center justify-between card-bounce shadow-md">
+                    <div class="relative my-4 flex justify-center items-center">
+                        <span class="font-title text-8xl font-black text-gray-900 leading-none select-none">3</span>
+                        <div class="absolute top-[18px] right-[-10px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm">
+                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5"></div>
+                            </div>
+                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5"></div>
+                            </div>
                         </div>
                     </div>
-                    <span class="font-title text-xl font-bold text-lumoPurple mt-4">3° Grado</span>
+                    <span class="font-title text-2xl font-extrabold text-lumoPurple mt-2">3° Grado</span>
                 </div>
 
             </div>
 
-            <p class="font-title text-sm md:text-base text-gray-600 mt-6">
+            <p class="font-title text-sm md:text-base text-gray-600 mt-8">
                 Selecciona tu grado para ingresar a la plataforma.
             </p>
         </div>
@@ -321,833 +182,9 @@
             const user = document.getElementById('usernameInput').value.trim() || 'Artista';
             alert(`¡Hola ${user}! Has seleccionado el Grado ${grade}°. Bienvenid@ a LÜMØ.`);
         }
-    </script>
-</body>
-</html>
-          
-          
-            
-            <div class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full border border-white/20">
-                <div class="w-8 h-8 rounded-full bg-lumoGold flex items-center justify-center text-lumoBlue font-bold text-sm shadow">
-                    <i class="fa-solid fa-child"></i>
-                </div>
-                <input type="text" id="usernameInput" value="Artista Junior" class="bg-transparent text-white font-title font-bold text-xs md:text-sm focus:outline-none w-24 border-b border-white/40 focus:border-lumoGold">
-            </div>
-        </div>
-    </header>
 
-    
-    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col gap-6">
-
-        
-        <div id="heroBanner" class="relative bg-gradient-to-r from-lumoBlue via-lumoPurple to-lumoCrimson rounded-3xl p-6 md:p-8 text-white shadow-xl overflow-hidden border-4 border-white transition-all duration-300">
-            <div class="absolute -right-10 -bottom-10 opacity-20 text-white text-9xl font-title pointer-events-none">LÜMØ</div>
-            <div class="relative z-10 max-w-2xl">
-                <span id="gradeBadge" class="bg-lumoGold text-lumoBlue text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm mb-2 inline-block">
-                    Procesos Artísticos A • Grado 1°
-                </span>
-                <h1 id="bannerTitle" class="font-title text-3xl md:text-5xl font-extrabold tracking-wide drop-shadow-md my-2">
-                    ¡Puntos, Líneas y Colores Puros!
-                </h1>
-                <p id="bannerDesc" class="text-xs md:text-sm opacity-95 leading-relaxed font-body">
-                    Aprende las formas fundamentales del dibujo, descubre el patrimonio cultural colombiano y diviértete pintando en el lienzo.
-                </p>
-            </div>
-        </div>
-
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
-            <button onclick="switchTab('textos')" id="tab-textos" class="nav-tab bg-lumoGreen text-white p-4 rounded-2xl shadow-md card-bounce flex flex-col items-center justify-center border-b-4 border-green-700 transition">
-                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mb-1">
-                    <i class="fa-solid fa-book-open text-xl"></i>
-                </div>
-                <span class="font-title font-bold text-base md:text-lg">TEXTOS</span>
-                <span class="text-[10px] opacity-90">Lecturas y Cuentos</span>
-            </button>
-
-            <button onclick="switchTab('videos')" id="tab-videos" class="nav-tab bg-lumoGold text-lumoBlue p-4 rounded-2xl shadow-md card-bounce flex flex-col items-center justify-center border-b-4 border-yellow-600 transition">
-                <div class="w-10 h-10 bg-lumoBlue/10 rounded-full flex items-center justify-center mb-1">
-                    <i class="fa-solid fa-play text-xl text-lumoBlue"></i>
-                </div>
-                <span class="font-title font-bold text-base md:text-lg">VIDEOS</span>
-                <span class="text-[10px] opacity-90">Tutoriales Paso a Paso</span>
-            </button>
-
-            <button onclick="switchTab('actividades')" id="tab-actividades" class="nav-tab bg-lumoCrimson text-white p-4 rounded-2xl shadow-md card-bounce flex flex-col items-center justify-center border-b-4 border-red-800 transition">
-                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mb-1">
-                    <i class="fa-solid fa-pencil text-xl"></i>
-                </div>
-                <span class="font-title font-bold text-base md:text-lg">ACTIVIDADES</span>
-                <span class="text-[10px] opacity-90">Quizzes y Juegos</span>
-            </button>
-
-            <button onclick="switchTab('dibujos')" id="tab-dibujos" class="nav-tab bg-lumoPurple text-white p-4 rounded-2xl shadow-md card-bounce flex flex-col items-center justify-center border-b-4 border-purple-900 transition">
-                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mb-1">
-                    <i class="fa-solid fa-paint-brush text-xl"></i>
-                </div>
-                <span class="font-title font-bold text-base md:text-lg">DIBUJOS</span>
-                <span class="text-[10px] opacity-90">Lienzo y Plantillas</span>
-            </button>
-        </div>
-
-        
-        <section id="section-textos" class="content-section bg-white rounded-3xl p-6 shadow-md border-2 border-lumoGreen/30">
-            <div class="flex items-center justify-between border-b pb-4 mb-6">
-                <div>
-                    <h2 class="font-title text-2xl md:text-3xl font-bold text-lumoGreen flex items-center gap-2">
-                        <i class="fa-solid fa-book-open"></i> Lecturas e Historias
-                    </h2>
-                    <p class="text-xs text-gray-600 font-body">Contenidos curriculares de arte con lectura en voz alta (Text-to-Speech).</p>
-                </div>
-                <span id="textSectionBadge" class="bg-lumoGreen/10 text-lumoGreen px-3 py-1 rounded-full font-title text-xs font-bold">Unidades de Grado 1°</span>
-            </div>
-
-            <div id="readingsCardsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-            </div>
-        </section>
-
-        
-        <section id="section-videos" class="content-section bg-white rounded-3xl p-6 shadow-md border-2 border-lumoGold/50 hidden">
-            <div class="flex items-center justify-between border-b pb-4 mb-6">
-                <div>
-                    <h2 class="font-title text-2xl md:text-3xl font-bold text-yellow-600 flex items-center gap-2">
-                        <i class="fa-solid fa-circle-play"></i> Video Tutoriales de Arte
-                    </h2>
-                    <p class="text-xs text-gray-600 font-body">Videoclases paso a paso preparadas para el nivel seleccionado.</p>
-                </div>
-                <span id="videoSectionBadge" class="bg-lumoGold/20 text-yellow-700 px-3 py-1 rounded-full font-title text-xs font-bold">Grado 1°</span>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div class="lg:col-span-2 bg-black rounded-2xl overflow-hidden shadow-lg border-4 border-lumoGold flex flex-col">
-                    <div class="relative w-full pb-[56.25%] bg-gray-900">
-                        <iframe id="videoPlayer" class="absolute top-0 left-0 w-full h-full" 
-                                src="" title="Tutorial de Arte" frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="p-4 bg-gray-50 border-t flex justify-between items-center">
-                        <div>
-                            <h3 id="videoTitle" class="font-title text-base md:text-lg font-bold text-lumoBlue">Cargando Lección...</h3>
-                            <p id="videoDesc" class="text-xs text-gray-500 font-body">Selecciona una lección del menú lateral.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="videoPlaylistContainer" class="space-y-3 max-h-[420px] overflow-y-auto pr-1">
-                    
-                </div>
-            </div>
-        </section>
-
-        
-        <section id="section-actividades" class="content-section bg-white rounded-3xl p-6 shadow-md border-2 border-lumoCrimson/30 hidden">
-            <div class="flex items-center justify-between border-b pb-4 mb-6">
-                <div>
-                    <h2 class="font-title text-2xl md:text-3xl font-bold text-lumoCrimson flex items-center gap-2">
-                        <i class="fa-solid fa-list-check"></i> Talleres y Desafíos
-                    </h2>
-                    <p class="text-xs text-gray-600 font-body">Quizzes evaluativos tipo Pruebas Saber y juegos interactivos de color.</p>
-                </div>
-                <span id="actSectionBadge" class="bg-lumoCrimson/10 text-lumoCrimson px-3 py-1 rounded-full font-title text-xs font-bold">Pruebas Grado 1°</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <div class="bg-red-50/60 p-5 rounded-2xl border-2 border-red-200">
-                    <h3 id="gameTitle" class="font-title text-lg font-bold text-lumoCrimson mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-palette"></i> Desafío de Color
-                    </h3>
-                    <p id="gameInstructions" class="text-xs text-gray-600 mb-4">Haz clic en los colores según la instrucción del grado.</p>
-                    <div id="colorGameContainer" class="grid grid-cols-3 gap-3 mb-4">
-                        
-                    </div>
-                    <div id="gameFeedback" class="text-xs font-title font-bold text-center h-5 text-lumoBlue"></div>
-                </div>
-
-                
-                <div class="bg-blue-50/60 p-5 rounded-2xl border-2 border-blue-200 flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-title text-lg font-bold text-lumoBlue mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-graduation-cap"></i> Quiz Saber Arte
-                        </h3>
-                        <p class="text-xs text-gray-600 mb-3">Pregunta conceptual del grado:</p>
-                        <div class="bg-white p-3 rounded-xl shadow-sm border mb-3">
-                            <p id="quizQuestion" class="font-body text-xs font-bold text-gray-800">
-                                Cargando pregunta...
-                            </p>
-                        </div>
-                        <div id="quizOptions" class="space-y-2">
-                            
-                        </div>
-                    </div>
-                    <div id="quizFeedback" class="mt-3 text-xs font-title font-bold text-center h-5"></div>
-                </div>
-            </div>
-        </section>
-
-        
-        <section id="section-dibujos" class="content-section bg-white rounded-3xl p-4 md:p-6 shadow-md border-2 border-lumoPurple/30 hidden">
-            <div class="flex flex-col md:flex-row md:items-center justify-between border-b pb-3 mb-4 gap-2">
-                <div>
-                    <h2 class="font-title text-2xl md:text-3xl font-bold text-lumoPurple flex items-center gap-2">
-                        <i class="fa-solid fa-palette"></i> Lienzo Digital y Plantillas
-                    </h2>
-                    <p class="text-xs text-gray-600 font-body">Expresa tu creatividad con herramientas de dibujo y plantillas del grado.</p>
-                </div>
-                <div class="flex items-center gap-2">
-                    <button onclick="clearCanvas()" class="px-3 py-1.5 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-xl font-title text-xs font-bold transition flex items-center gap-1">
-                        <i class="fa-solid fa-trash-can"></i> Limpiar
-                    </button>
-                    <button onclick="downloadCanvas()" class="px-4 py-1.5 bg-lumoGreen hover:bg-green-600 text-white rounded-xl font-title text-xs font-bold shadow transition flex items-center gap-1">
-                        <i class="fa-solid fa-download"></i> Guardar Mi Obra
-                    </button>
-                </div>
-            </div>
-
-            
-            <div class="bg-purple-50 p-3 rounded-2xl border border-purple-200 mb-4 flex flex-wrap items-center justify-between gap-3">
-                
-                <div class="flex items-center gap-2">
-                    <button onclick="setTool('brush')" id="tool-brush" class="canvas-tool-btn p-2 rounded-xl bg-lumoPurple text-white shadow transition" title="Pincel">
-                        <i class="fa-solid fa-paint-brush"></i>
-                    </button>
-                    <button onclick="setTool('pencil')" id="tool-pencil" class="canvas-tool-btn p-2 rounded-xl bg-white text-gray-700 hover:bg-purple-100 transition" title="Lápiz Fino">
-                        <i class="fa-solid fa-pencil"></i>
-                    </button>
-                    <button onclick="setTool('eraser')" id="tool-eraser" class="canvas-tool-btn p-2 rounded-xl bg-white text-gray-700 hover:bg-purple-100 transition" title="Borrador">
-                        <i class="fa-solid fa-eraser"></i>
-                    </button>
-                </div>
-
-                
-                <div class="flex items-center gap-1 bg-white px-2 py-1 rounded-xl border">
-                    <span class="text-xs font-title font-bold text-lumoPurple mr-1">Plantilla Grado:</span>
-                    <button onclick="loadGradeStencil()" class="px-2 py-1 bg-lumoPurple/10 hover:bg-lumoPurple/20 text-lumoPurple rounded text-xs font-bold flex items-center gap-1">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> Cargar Plantilla
-                    </button>
-                </div>
-
-                
-                <div class="flex items-center gap-1 bg-white px-2 py-1 rounded-xl border">
-                    <button onclick="stampShape('circle')" class="p-1 hover:bg-purple-100 rounded text-lumoBlue" title="Círculo"><i class="fa-regular fa-circle"></i></button>
-                    <button onclick="stampShape('square')" class="p-1 hover:bg-purple-100 rounded text-lumoBlue" title="Cuadrado"><i class="fa-regular fa-square"></i></button>
-                    <button onclick="stampShape('star')" class="p-1 hover:bg-purple-100 rounded text-lumoBlue" title="Estrella"><i class="fa-regular fa-star"></i></button>
-                </div>
-
-                
-                <div class="flex items-center gap-2">
-                    <span class="text-xs font-title font-bold text-gray-600">Grosor:</span>
-                    <input type="range" id="brushSize" min="2" max="40" value="8" oninput="updateBrushSize(this.value)" class="w-20 accent-lumoPurple cursor-pointer">
-                    <span id="brushSizeDisplay" class="text-xs font-title font-bold w-5 text-center">8</span>
-                </div>
-
-                
-                <div class="flex items-center gap-1">
-                    <button onclick="setColor('#F0D53E')" class="w-6 h-6 rounded-full border-2 border-white shadow bg-[#F0D53E] hover:scale-110 transition"></button>
-                    <button onclick="setColor('#03658C')" class="w-6 h-6 rounded-full border-2 border-white shadow bg-[#03658C] hover:scale-110 transition"></button>
-                    <button onclick="setColor('#D93D59')" class="w-6 h-6 rounded-full border-2 border-white shadow bg-[#D93D59] hover:scale-110 transition"></button>
-                    <button onclick="setColor('#4BD166')" class="w-6 h-6 rounded-full border-2 border-white shadow bg-[#4BD166] hover:scale-110 transition"></button>
-                    <button onclick="setColor('#8549BA')" class="w-6 h-6 rounded-full border-2 border-white shadow bg-[#8549BA] hover:scale-110 transition"></button>
-                    <button onclick="setColor('#000000')" class="w-6 h-6 rounded-full border-2 border-white shadow bg-black hover:scale-110 transition"></button>
-                    <input type="color" id="customColorPicker" onchange="setColor(this.value)" class="w-6 h-6 rounded-full cursor-pointer border-none bg-transparent">
-                </div>
-            </div>
-
-            
-            <div class="relative w-full h-[450px] bg-white rounded-2xl border-4 border-dashed border-purple-200 overflow-hidden shadow-inner flex items-center justify-center">
-                <canvas id="paintCanvas" class="w-full h-full bg-white"></canvas>
-            </div>
-        </section>
-
-    </main>
-
-    
-    <footer class="bg-white border-t mt-8 py-6 text-center text-xs text-gray-500 font-body">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3">
-            <div class="flex items-center gap-2">
-                <span class="font-title text-xl font-bold text-lumoBlue">LÜMØ</span>
-                <span>— Arte Digital de 1° a 3° Grado de Primaria.</span>
-            </div>
-            <p>© 2026 LÜMØ Educativo. Adaptado al currículo del Ministerio de Educación Nacional.</p>
-        </div>
-    </footer>
-
-    
-    <div id="readingModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border-4 border-lumoGreen relative">
-            <button onclick="closeReadingModal()" class="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 font-bold flex items-center justify-center">
-                ✕
-            </button>
-            <h3 id="modalTitle" class="font-title text-2xl font-bold text-lumoGreen mb-3">Título</h3>
-            <p id="modalContent" class="text-sm text-gray-700 leading-relaxed font-body mb-6">Contenido del texto...</p>
-            <div class="flex justify-end gap-3">
-                <button onclick="speakModalText()" class="px-4 py-2 bg-lumoGold text-lumoBlue font-title font-bold rounded-xl text-xs hover:bg-yellow-400 transition flex items-center gap-1">
-                    <i class="fa-solid fa-volume-high"></i> Escuchar Lectura
-                </button>
-                <button onclick="closeReadingModal()" class="px-4 py-2 bg-lumoGreen text-white font-title font-bold rounded-xl text-xs hover:bg-green-600 transition">
-                    Entendido
-                </button>
-            </div>
-        </div>
-    </div>
-
-    
-    <script>
-        // Global State Variables
-        let currentGrade = 1;
-        let activeTab = 'textos';
-        let currentTool = 'brush';
-        let currentColor = '#03658C';
-        let currentBrushSize = 8;
-        let isDrawing = false;
-        let canvas, ctx;
-
-        // Curricular Planning Datasets for 1°, 2° and 3° Grade
-        const curriculumData = {
-            1: {
-                badge: "Procesos Artísticos A • Grado 1°",
-                title: "¡Puntos, Líneas y Colores Puros!",
-                desc: "Descubre el origen del dibujo, explora los 3 colores primarios y celebra el Carnaval de Negros y Blancos.",
-                textos: [
-                    {
-                        tag: "Unidad 1",
-                        color: "lumoGreen",
-                        title: "Cuento: 'Soy un Punto'",
-                        summary: "¡Hola! Soy un punto. Aunque me ves pequeño, soy el origen de todos los dibujos. Si camino sin parar, creo líneas.",
-                        fullText: "Hola, soy un punto. Aunque me ves pequeño, soy el inicio de todo el arte. Si me mueves en el papel, creo líneas rectas, curvas y zig-zags. Cuando muchos puntos nos juntamos, creamos la técnica del Puntillismo. ¡Usa tus colores para hacer magia!"
-                    },
-                    {
-                        tag: "Unidad 2",
-                        color: "lumoBlue",
-                        title: "Los Colores Primarios",
-                        summary: "El Amarillo (Sol), el Azul (Mar) y el Rojo (Corazón) son colores reyes puros que no se mezclas de otros.",
-                        fullText: "En el reino de LÜMØ existen tres colores especiales: Amarillo como el Sol radiante, Azul como el vasto océano y Rojo como la manzana madura. Se llaman Primarios porque son puros y habitan en la naturaleza."
-                    },
-                    {
-                        tag: "Patrimonio",
-                        color: "lumoPurple",
-                        title: "Carnaval de Negros y Blancos",
-                        summary: "En Pasto, Colombia, pintamos nuestros rostros con cosméticos artísticos y elaboramos carrozas multicolores.",
-                        fullText: "El Carnaval de Negros y Blancos es una gran fiesta en Colombia. Las familias usan pinturas faciales y crean gigantescas carrozas de papel maché para celebrar la unión y la diversidad de nuestra cultura."
-                    }
-                ],
-                videos: [
-                    { id: "3v3H_3BOHL8", title: "1. Colores Primarios para 1°", desc: "Aprende a identificar el Amarillo, Azul y Rojo en tu entorno." },
-                    { id: "2B4_S2v1C0A", title: "2. Puntos y Líneas Divertidas", desc: "Descubre cómo las líneas rectas y curvas forman objetos." },
-                    { id: "X4uUf9z8S2Y", title: "3. Dibujando Figuras Básicas", desc: "Crea casas y soles con círculos y cuadrados." }
-                ],
-                game: {
-                    title: "Identifica los Colores Primarios",
-                    instructions: "Haz clic únicamente en los 3 Colores PRIMARIOS (Amarillo, Azul, Rojo):",
-                    options: [
-                        { text: "Amarillo", isCorrect: true, bg: "bg-yellow-400 text-lumoBlue" },
-                        { text: "Verde", isCorrect: false, bg: "bg-green-500 text-white" },
-                        { text: "Azul", isCorrect: true, bg: "bg-blue-600 text-white" },
-                        { text: "Morado", isCorrect: false, bg: "bg-purple-600 text-white" },
-                        { text: "Rojo", isCorrect: true, bg: "bg-red-500 text-white" },
-                        { text: "Naranja", isCorrect: false, bg: "bg-orange-500 text-white" }
-                    ]
-                },
-                quiz: {
-                    question: "¿Qué elemento gráfico surge cuando un punto se mueve en línea continua?",
-                    options: [
-                        { text: "A) Una Línea", isCorrect: true },
-                        { text: "B) Un Triángulo", isCorrect: false },
-                        { text: "C) Una Mancha", isCorrect: false }
-                    ]
-                }
-            },
-            2: {
-                badge: "Procesos Artísticos B • Grado 2°",
-                title: "¡Mezclas Mágicas y Texturas!",
-                desc: "Crea colores secundarios, explora el puntillismo detallado y la belleza colonial de Cartagena.",
-                textos: [
-                    {
-                        tag: "Unidad 1",
-                        color: "lumoGreen",
-                        title: "Nacimiento de los Secundarios",
-                        summary: "Cuando los colores primarios se dan un abrazo, nacen el Verde, el Naranja y el Violeta.",
-                        fullText: "Un día, el Amarillo y el Azul jugaron juntos y crearon al Verde de las plantas. El Azul y el Rojo crearon al Violeta de las uvas. Y el Rojo con el Amarillo crearon al Naranja de las mandarinas. ¡Así nacieron los Secundarios!"
-                    },
-                    {
-                        tag: "Unidad 2",
-                        color: "lumoBlue",
-                        title: "Texturas Visuales y Puntillismo",
-                        summary: "Los artistas pueden hacer que un dibujo parezca suave, rugoso o brillante usando pequeños puntos.",
-                        fullText: "El Puntillismo es una técnica donde no usas pinceladas largas, sino miles de puntitos juntos. Si pones puntos amarillos muy cerca de puntos azules, ¡tu ojo verá verde desde lejos!"
-                    },
-                    {
-                        tag: "Patrimonio",
-                        color: "lumoPurple",
-                        title: "Las Murallas de Cartagena",
-                        summary: "Formas geométricas tridimensionales y arquitectura colonial que protegen la hermosa costa del Caribe.",
-                        fullText: "En Cartagena de Indias encontramos muros de piedra y fortificaciones construidas hace siglos. Sus balcones de madera y arcos geométricos son un tesoro histórico del patrimonio colombiano."
-                    }
-                ],
-                videos: [
-                    { id: "pS9d3JCE3R0", title: "1. Técnica del Puntillismo 2°", desc: "Crea paisajes con textura usando marcadores o hisopos." },
-                    { id: "3v3H_3BOHL8", title: "2. Mezcla de Colores Secundarios", desc: "Tutorial interactivo de combinación de pinturas." },
-                    { id: "X4uUf9z8S2Y", title: "3. Composición con Formas", desc: "Ensambla figuras secundarias e ilustraciones complejas." }
-                ],
-                game: {
-                    title: "Encuentra los Colores SECUNDARIOS",
-                    instructions: "Haz clic en los colores que resultan de mezclar dos primarios (Verde, Naranja, Violeta):",
-                    options: [
-                        { text: "Verde", isCorrect: true, bg: "bg-green-500 text-white" },
-                        { text: "Amarillo", isCorrect: false, bg: "bg-yellow-400 text-lumoBlue" },
-                        { text: "Naranja", isCorrect: true, bg: "bg-orange-500 text-white" },
-                        { text: "Azul", isCorrect: false, bg: "bg-blue-600 text-white" },
-                        { text: "Violeta", isCorrect: true, bg: "bg-purple-600 text-white" },
-                        { text: "Rojo", isCorrect: false, bg: "bg-red-500 text-white" }
-                    ]
-                },
-                quiz: {
-                    question: "¿Qué color secundario obtienes si mezclas pintura Amarilla y Azul?",
-                    options: [
-                        { text: "A) Naranja", isCorrect: false },
-                        { text: "B) Verde", isCorrect: true },
-                        { text: "C) Violeta", isCorrect: false }
-                    ]
-                }
-            },
-            3: {
-                badge: "Procesos Artísticos C • Grado 3°",
-                title: "¡Luz, Temperatura y Simetría!",
-                desc: "Diferencia colores cálidos y fríos, descubre la perspectiva y la orfebrería del Parque Tayrona.",
-                textos: [
-                    {
-                        tag: "Unidad 1",
-                        color: "lumoGreen",
-                        title: "Temperatura del Color",
-                        summary: "Los colores nos transmiten sensaciones: Cálidos (fuego/sol) y Fríos (agua/noche).",
-                        fullText: "Los Colores Cálidos (Rojo, Naranja, Amarillo) nos recuerdan al sol, el fuego y la playa. Los Colores Fríos (Azul, Verde, Violeta) nos transmiten la calma del mar, la sombra del bosque y las noches estrelladas."
-                    },
-                    {
-                        tag: "Unidad 2",
-                        color: "lumoBlue",
-                        title: "Simetría y Proporción",
-                        summary: "La simetría ocurre cuando ambos lados de una figura son idénticos, como las alas de una mariposa.",
-                        fullText: "Si trazas una línea imaginaria por la mitad de una mariposa o una hoja, verás que ambos lados coinciden perfectamente. A esto se le llama Simetría y ayuda a equilibrar tus composiciones artísticas."
-                    },
-                    {
-                        tag: "Patrimonio",
-                        color: "lumoPurple",
-                        title: "Simbolismo Precolombino Tayrona",
-                        summary: "Figuras geométricas sagradas talladas en oro y piedra por nuestros ancestros indígenas.",
-                        fullText: "Los indígenas Tayrona del Caribe colombiano fabricaban hermosas figuras doradas y colgantes con patrones geométricos simétricos. Representaban jaguares, aves y elementos sagrados de la naturaleza."
-                    }
-                ],
-                videos: [
-                    { id: "3v3H_3BOHL8", title: "1. Colores Cálidos vs Fríos", desc: "Aprende a transmitir emociones mediante la temperatura cromática." },
-                    { id: "2B4_S2v1C0A", title: "2. Dibujo Simétrico y Proporcional", desc: "Construye máscaras y elementos simétricos perfectos." },
-                    { id: "X4uUf9z8S2Y", title: "3. Simbolismo Precolombino", desc: "Tutorial para recrear patrones ancestrales indígenas." }
-                ],
-                game: {
-                    title: "Clasifica los Colores CÁLIDOS",
-                    instructions: "Selecciona los colores que pertenecen a la familia CÁLIDA (Sol y fuego):",
-                    options: [
-                        { text: "Rojo", isCorrect: true, bg: "bg-red-500 text-white" },
-                        { text: "Azul", isCorrect: false, bg: "bg-blue-600 text-white" },
-                        { text: "Naranja", isCorrect: true, bg: "bg-orange-500 text-white" },
-                        { text: "Verde", isCorrect: false, bg: "bg-green-500 text-white" },
-                        { text: "Amarillo", isCorrect: true, bg: "bg-yellow-400 text-lumoBlue" },
-                        { text: "Violeta", isCorrect: false, bg: "bg-purple-600 text-white" }
-                    ]
-                },
-                quiz: {
-                    question: "¿Qué sensación transmiten los colores Fríos como el Azul y el Verde?",
-                    options: [
-                        { text: "A) Calor y fuego brillante", isCorrect: false },
-                        { text: "B) Calma, sombra y frescura", isCorrect: true },
-                        { text: "C) Ruido y movimiento rápido", isCorrect: false }
-                    ]
-                }
-            }
-        };
-
-        window.onload = function() {
-            canvas = document.getElementById('paintCanvas');
-            ctx = canvas.getContext('2d');
-            resizeCanvas();
-
-            window.addEventListener('resize', resizeCanvas);
-
-            // Canvas Listeners
-            canvas.addEventListener('mousedown', startDrawing);
-            canvas.addEventListener('mousemove', draw);
-            canvas.addEventListener('mouseup', stopDrawing);
-            canvas.addEventListener('mouseleave', stopDrawing);
-
-            canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
-            canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
-            canvas.addEventListener('touchend', stopDrawing);
-
-            // Load default Grade 1
-            setGrade(1);
-        };
-
-        // Grade Switcher Handler
-        function setGrade(gradeNum) {
-            currentGrade = gradeNum;
-
-            // Highlight Grade Buttons
-            document.querySelectorAll('.grade-btn').forEach((btn, idx) => {
-                if ((idx + 1) === gradeNum) {
-                    btn.className = "grade-btn px-3 py-1.5 rounded-xl font-title text-xs md:text-sm font-bold transition shadow bg-lumoGold text-lumoBlue scale-105";
-                } else {
-                    btn.className = "grade-btn px-3 py-1.5 rounded-xl font-title text-xs md:text-sm font-bold transition text-white hover:bg-white/20";
-                }
-            });
-
-            // Update Dynamic Hero Banner
-            const data = curriculumData[gradeNum];
-            document.getElementById('gradeBadge').innerText = data.badge;
-            document.getElementById('bannerTitle').innerText = data.title;
-            document.getElementById('bannerDesc').innerText = data.desc;
-
-            // Update Badges
-            document.getElementById('textSectionBadge').innerText = `Unidades de Grado ${gradeNum}°`;
-            document.getElementById('videoSectionBadge').innerText = `Lecciones Grado ${gradeNum}°`;
-            document.getElementById('actSectionBadge').innerText = `Pruebas Grado ${gradeNum}°`;
-
-            // Render Grade Content Across Sections
-            renderReadings(data.textos);
-            renderVideos(data.videos);
-            renderGame(data.game);
-            renderQuiz(data.quiz);
-
-            // Clear & Draw Stencil for selected grade
-            clearCanvas();
-            loadGradeStencil();
-        }
-
-        // Render Text Card Readings
-        function renderReadings(readings) {
-            const container = document.getElementById('readingsCardsContainer');
-            container.innerHTML = readings.map(r => `
-                <div class="bg-gradient-to-b from-gray-50 to-white p-5 rounded-2xl border-2 border-gray-200 flex flex-col justify-between hover:shadow-lg transition card-bounce">
-                    <div>
-                        <div class="flex justify-between items-start mb-3">
-                            <span class="bg-${r.color} text-white text-xs px-2 py-1 rounded-md font-bold">${r.tag}</span>
-                            <button onclick="speakText('${r.title}. ${r.summary}')" class="text-lumoBlue hover:scale-110 transition">
-                                <i class="fa-solid fa-volume-high text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="font-title text-xl font-bold text-gray-800 mb-2">${r.title}</h3>
-                        <p class="text-xs text-gray-600 mb-4 leading-relaxed">${r.summary}</p>
-                    </div>
-                    <button onclick="openReadingModal('${r.title}', '${r.fullText}')" class="w-full bg-lumoBlue text-white font-title py-2 rounded-xl text-xs font-bold hover:bg-blue-700 transition">
-                        Leer Completo
-                    </button>
-                </div>
-            `).join('');
-        }
-
-        // Render Video Playlist
-        function renderVideos(videos) {
-            const container = document.getElementById('videoPlaylistContainer');
-            if (videos.length > 0) {
-                // Auto play first video
-                playVideo(videos[0].id, videos[0].title, videos[0].desc);
-            }
-
-            container.innerHTML = `
-                <p class="font-title text-xs font-bold text-gray-700">Selecciona una Lección:</p>
-                ${videos.map((v, i) => `
-                    <div onclick="playVideo('${v.id}', '${v.title}', '${v.desc}')" 
-                         class="p-3 bg-yellow-50 hover:bg-yellow-100 rounded-xl border border-yellow-200 cursor-pointer flex items-center gap-3 transition">
-                        <div class="w-8 h-8 bg-lumoGold text-lumoBlue rounded-lg flex items-center justify-center font-bold text-xs flex-shrink-0">
-                            ${i + 1}
-                        </div>
-                        <div>
-                            <h4 class="font-title text-xs font-bold text-gray-800">${v.title}</h4>
-                            <p class="text-[10px] text-gray-500">${v.desc}</p>
-                        </div>
-                    </div>
-                `).join('')}
-            `;
-        }
-
-        function playVideo(youtubeId, title, desc) {
-            const iframe = document.getElementById('videoPlayer');
-            iframe.src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=0`;
-            document.getElementById('videoTitle').innerText = title;
-            document.getElementById('videoDesc').innerText = desc;
-        }
-
-        // Render Color Classifier Game
-        function renderGame(gameData) {
-            document.getElementById('gameTitle').innerHTML = `<i class="fa-solid fa-palette"></i> ${gameData.title}`;
-            document.getElementById('gameInstructions').innerText = gameData.instructions;
-            document.getElementById('gameFeedback').innerText = '';
-
-            const container = document.getElementById('colorGameContainer');
-            container.innerHTML = gameData.options.map(opt => `
-                <button onclick="checkGameColor(this, ${opt.isCorrect})" class="h-12 ${opt.bg} rounded-xl font-title text-xs font-bold shadow hover:scale-105 transition">
-                    ${opt.text}
-                </button>
-            `).join('');
-        }
-
-        function checkGameColor(btn, isCorrect) {
-            const feedback = document.getElementById('gameFeedback');
-            if (isCorrect) {
-                btn.classList.add('ring-4', 'ring-green-400');
-                feedback.innerHTML = '<span class="text-lumoGreen">¡Correcto! Respuesta acertada. 🌟</span>';
-            } else {
-                btn.classList.add('ring-4', 'ring-red-400');
-                feedback.innerHTML = '<span class="text-lumoCrimson">¡Sigue intentando! Observa la teoría del grado.</span>';
-            }
-        }
-
-        // Render Quiz Saber
-        function renderQuiz(quizData) {
-            document.getElementById('quizQuestion').innerText = quizData.question;
-            document.getElementById('quizFeedback').innerText = '';
-
-            const container = document.getElementById('quizOptions');
-            container.innerHTML = quizData.options.map(opt => `
-                <button onclick="answerQuiz(this, ${opt.isCorrect})" class="w-full text-left p-2.5 bg-white hover:bg-blue-100 rounded-xl text-xs border transition">
-                    ${opt.text}
-                </button>
-            `).join('');
-        }
-
-        function answerQuiz(btn, isCorrect) {
-            const feedback = document.getElementById('quizFeedback');
-            if (isCorrect) {
-                btn.classList.replace('bg-white', 'bg-green-100');
-                feedback.innerHTML = '<span class="text-lumoGreen">¡Excelente respuesta! +10 Puntos LÜMØ 🎉</span>';
-            } else {
-                btn.classList.replace('bg-white', 'bg-red-100');
-                feedback.innerHTML = '<span class="text-lumoCrimson">¡Casi! Revisa las lecturas del grado.</span>';
-            }
-        }
-
-        // Tab Switcher Navigation
-        function switchTab(tabName) {
-            activeTab = tabName;
-            document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
-            
-            document.querySelectorAll('.nav-tab').forEach(btn => {
-                btn.classList.remove('ring-4', 'ring-white', 'scale-105');
-            });
-
-            const selectedSection = document.getElementById(`section-${tabName}`);
-            if (selectedSection) selectedSection.classList.remove('hidden');
-
-            const selectedTabBtn = document.getElementById(`tab-${tabName}`);
-            if (selectedTabBtn) selectedTabBtn.classList.add('ring-4', 'ring-white', 'scale-105');
-
-            if (tabName === 'dibujos') {
-                setTimeout(resizeCanvas, 50);
-            }
-        }
-
-        // Text To Speech Utterance
-        function speakText(text) {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'es-ES';
-                utterance.rate = 0.9;
-                window.speechSynthesis.speak(utterance);
-            }
-        }
-
-        function openReadingModal(title, text) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalContent').innerText = text;
-            document.getElementById('readingModal').classList.remove('hidden');
-        }
-
-        function closeReadingModal() {
-            document.getElementById('readingModal').classList.add('hidden');
-            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-        }
-
-        function speakModalText() {
-            const text = document.getElementById('modalContent').innerText;
-            speakText(text);
-        }
-
-        
-        function resizeCanvas() {
-            if (!canvas) return;
-            const rect = canvas.parentElement.getBoundingClientRect();
-            
-            const tempCanvas = document.createElement('canvas');
-            tempCanvas.width = canvas.width;
-            tempCanvas.height = canvas.height;
-            const tempCtx = tempCanvas.getContext('2d');
-            tempCtx.drawImage(canvas, 0, 0);
-
-            canvas.width = rect.width;
-            canvas.height = rect.height;
-
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(tempCanvas, 0, 0);
-        }
-
-        function setTool(tool) {
-            currentTool = tool;
-            document.querySelectorAll('.canvas-tool-btn').forEach(b => {
-                b.classList.remove('bg-lumoPurple', 'text-white');
-                b.classList.add('bg-white', 'text-gray-700');
-            });
-            const activeBtn = document.getElementById(`tool-${tool}`);
-            if (activeBtn) {
-                activeBtn.classList.add('bg-lumoPurple', 'text-white');
-                activeBtn.classList.remove('bg-white', 'text-gray-700');
-            }
-        }
-
-        function setColor(hex) {
-            currentColor = hex;
-            if (currentTool === 'eraser') setTool('brush');
-        }
-
-        function updateBrushSize(val) {
-            currentBrushSize = val;
-            document.getElementById('brushSizeDisplay').innerText = val;
-        }
-
-        function startDrawing(e) {
-            isDrawing = true;
-            const pos = getCanvasPos(e);
-            ctx.beginPath();
-            ctx.moveTo(pos.x, pos.y);
-        }
-
-        function draw(e) {
-            if (!isDrawing) return;
-            const pos = getCanvasPos(e);
-
-            ctx.lineWidth = currentBrushSize;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-
-            if (currentTool === 'eraser') {
-                ctx.strokeStyle = '#FFFFFF';
-            } else if (currentTool === 'pencil') {
-                ctx.lineWidth = Math.max(2, currentBrushSize / 2);
-                ctx.strokeStyle = currentColor;
-            } else {
-                ctx.strokeStyle = currentColor;
-            }
-
-            ctx.lineTo(pos.x, pos.y);
-            ctx.stroke();
-        }
-
-        function stopDrawing() {
-            isDrawing = false;
-            ctx.beginPath();
-        }
-
-        function handleTouchStart(e) {
-            e.preventDefault();
-            const touch = e.touches[0];
-            startDrawing(touch);
-        }
-
-        function handleTouchMove(e) {
-            e.preventDefault();
-            const touch = e.touches[0];
-            draw(touch);
-        }
-
-        function getCanvasPos(e) {
-            const rect = canvas.getBoundingClientRect();
-            return {
-                x: (e.clientX - rect.left) * (canvas.width / rect.width),
-                y: (e.clientY - rect.top) * (canvas.height / rect.height)
-            };
-        }
-
-        // Grade Stencil Loader for Coloring Activities
-        function loadGradeStencil() {
-            const cx = canvas.width / 2;
-            const cy = canvas.height / 2;
-
-            ctx.strokeStyle = '#D1D5DB'; // Light grey outline for kids to paint inside
-            ctx.lineWidth = 3;
-
-            if (currentGrade === 1) {
-                // Grado 1° Stencil: Casa con Sol de formas primarias
-                ctx.beginPath();
-                ctx.arc(cx - 120, cy - 80, 35, 0, Math.PI * 2); // Sol
-                ctx.strokeRect(cx - 60, cy - 20, 120, 100); // Casa base
-                // Techo Triángulo
-                ctx.beginPath();
-                ctx.moveTo(cx - 80, cy - 20);
-                ctx.lineTo(cx, cy - 80);
-                ctx.lineTo(cx + 80, cy - 20);
-                ctx.closePath();
-                ctx.stroke();
-            } else if (currentGrade === 2) {
-                // Grado 2° Stencil: Mariposa Simétrica para Puntillismo
-                ctx.beginPath();
-                ctx.ellipse(cx, cy, 12, 60, 0, 0, Math.PI * 2); // Cuerpo
-                ctx.arc(cx - 50, cy - 30, 40, 0, Math.PI * 2); // Ala Izq Sup
-                ctx.arc(cx + 50, cy - 30, 40, 0, Math.PI * 2); // Ala Der Sup
-                ctx.arc(cx - 40, cy + 30, 30, 0, Math.PI * 2); // Ala Izq Inf
-                ctx.arc(cx + 40, cy + 30, 30, 0, Math.PI * 2); // Ala Der Inf
-                ctx.stroke();
-            } else if (currentGrade === 3) {
-                // Grado 3° Stencil: Simbolo Precolombino Tayrona
-                ctx.strokeRect(cx - 80, cy - 80, 160, 160);
-                ctx.beginPath();
-                ctx.moveTo(cx, cy - 80);
-                ctx.lineTo(cx + 80, cy);
-                ctx.lineTo(cx, cy + 80);
-                ctx.lineTo(cx - 80, cy);
-                ctx.closePath();
-                ctx.arc(cx, cy, 30, 0, Math.PI * 2);
-                ctx.stroke();
-            }
-        }
-
-        function stampShape(shapeType) {
-            const cx = canvas.width / 2;
-            const cy = canvas.height / 2;
-            ctx.strokeStyle = currentColor;
-            ctx.lineWidth = currentBrushSize;
-
-            ctx.beginPath();
-            if (shapeType === 'circle') {
-                ctx.arc(cx, cy, 40, 0, Math.PI * 2);
-            } else if (shapeType === 'square') {
-                ctx.rect(cx - 40, cy - 40, 80, 80);
-            } else if (shapeType === 'star') {
-                let rot = Math.PI / 2 * 3;
-                let step = Math.PI / 5;
-                ctx.moveTo(cx, cy - 40);
-                for (let i = 0; i < 5; i++) {
-                    ctx.lineTo(cx + Math.cos(rot) * 40, cy + Math.sin(rot) * 40);
-                    rot += step;
-                    ctx.lineTo(cx + Math.cos(rot) * 20, cy + Math.sin(rot) * 20);
-                    rot += step;
-                }
-                ctx.closePath();
-            }
-            ctx.stroke();
-        }
-
-        function clearCanvas() {
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-        }
-
-        function downloadCanvas() {
-            const link = document.createElement('a');
-            const username = document.getElementById('usernameInput').value || 'Artista';
-            link.download = `LUMO_Grado${currentGrade}_${username}.png`;
-            link.href = canvas.toDataURL('image/png');
-            link.click();
+        function switchTab(tab) {
+            console.log('Navegando a la sección:', tab);
         }
     </script>
 </body>
