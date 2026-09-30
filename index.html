@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LÜMØ - Arte Digital para Niños (1°, 2° y 3°)</title>
+    <title>LÜMØ - Arte Digital para Niños</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,7 +24,7 @@
                         lumoCrimson: '#D93D59',
                         lumoGreen: '#4BD166',
                         lumoPurple: '#8549BA',
-                        lumoBg: '#FFFDF5'
+                        lumoBg: '#03658C'
                     },
                     fontFamily: {
                         title: ['Pangolin', 'cursive'],
@@ -38,7 +38,6 @@
     <style>
         body {
             font-family: 'Verdana', sans-serif;
-            background-color: #FFFDF5;
             user-select: none;
         }
         .font-title {
@@ -51,75 +50,63 @@
                 linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
             background-size: 24px 24px;
         }
-        ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #03658C;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #D93D59;
-        }
         .card-bounce {
             transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .card-bounce:hover {
             transform: translateY(-5px) scale(1.02);
         }
-        #paintCanvas {
-            touch-action: none;
-            cursor: crosshair;
-        }
     </style>
 </head>
-<body class="bg-lumoBg text-gray-800 min-h-screen flex flex-col justify-between">
+<body class="bg-lumoBg min-h-screen flex flex-col justify-between">
 
-    <!-- Encabezado de la app -->
-    <header class="bg-lumoBlue text-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
-            <div class="flex items-center gap-2 cursor-pointer" onclick="switchTab('textos')">
-                <div class="bg-white rounded-2xl px-3 py-1 shadow-md flex items-center space-x-1">
-                    <span class="font-title text-2xl md:text-3xl font-black text-lumoCrimson">L</span>
-                    <span class="font-title text-2xl md:text-3xl font-black text-lumoGold">Ü</span>
-                    <span class="font-title text-2xl md:text-3xl font-black text-lumoGreen">M</span>
-                    <span class="font-title text-2xl md:text-3xl font-black text-lumoPurple">Ø</span>
-                    <i class="fa-solid fa-palette text-lumoBlue text-lg ml-1"></i>
-                </div>
+    <!-- Encabezado / Header principal -->
+    <header class="bg-transparent text-white px-6 py-4">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            
+            <!-- Logo LÜMØ -->
+            <div class="bg-white rounded-full px-4 py-1.5 shadow-md flex items-center space-x-1 cursor-pointer" onclick="switchTab('textos')">
+                <span class="font-title text-2xl font-black text-lumoCrimson">L</span>
+                <span class="font-title text-2xl font-black text-lumoGold">Ü</span>
+                <span class="font-title text-2xl font-black text-lumoGreen">M</span>
+                <span class="font-title text-2xl font-black text-lumoPurple">Ø</span>
+                <i class="fa-solid fa-palette text-lumoBlue text-base ml-1"></i>
             </div>
 
-            <div class="flex items-center gap-2 bg-white/20 px-4 py-1.5 rounded-full border border-white/30">
+            <!-- Campo Usuario -->
+            <div class="flex items-center gap-2 bg-white/20 px-4 py-1.5 rounded-full border border-white/30 backdrop-blur-sm">
                 <i class="fa-solid fa-user text-lumoGold"></i>
                 <span class="font-title text-xs text-yellow-200 uppercase tracking-wider">USERNAME:</span>
-                <input type="text" id="usernameInput" value="Artista" class="bg-transparent text-white font-title font-bold text-sm focus:outline-none w-32 border-b border-white/50 focus:border-lumoGold">
+                <input type="text" id="usernameInput" value="Artista" class="bg-transparent text-white font-title font-bold text-sm focus:outline-none w-28 border-b border-white/50 focus:border-lumoGold">
             </div>
+
         </div>
     </header>
 
-    <!-- Contenido Principal: Portada estilo Cuaderno -->
+    <!-- Contenido Principal: Cuaderno de Selección -->
     <main class="flex-1 max-w-4xl w-full mx-auto p-4 md:p-6 flex flex-col justify-center items-center">
 
-        <div class="grid-paper w-full rounded-3xl p-6 md:p-10 border-4 border-gray-400 shadow-2xl flex flex-col items-center text-center relative overflow-hidden">
+        <div class="grid-paper w-full rounded-3xl p-6 md:p-10 border-4 border-gray-900 shadow-2xl flex flex-col items-center text-center relative">
             
+            <!-- Título LÜMØ + ¡BIENVENIDOS! -->
             <div class="mb-8 w-full max-w-lg">
-                <p class="font-title text-4xl md:text-6xl font-bold text-lumoBlue mt-2 tracking-tight">
+                <h1 class="font-title text-5xl md:text-6xl font-black text-gray-900 tracking-wider">
+                    LÜMØ
+                </h1>
+                <div class="h-1 bg-gray-900 w-3/4 mx-auto my-2 rounded-full"></div>
+                <p class="font-title text-3xl md:text-4xl font-bold text-lumoBlue mt-2">
                     ¡BIENVENIDOS!
                 </p>
             </div>
 
-            <!-- Contenedor de las 3 tarjetas de grado -->
+            <!-- Tarjetas de Grados (1°, 2°, 3°) -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
                 
-                <!-- Tarjeta 1° Grado -->
+                <!-- 1° Grado -->
                 <div onclick="selectGrade(1)" class="cursor-pointer bg-white border-[3px] border-gray-900 rounded-3xl p-6 flex flex-col items-center justify-between card-bounce shadow-md">
-                    <div class="relative my-4 flex justify-center items-center">
-                        <span class="font-title text-8xl font-black text-gray-900 leading-none select-none">1</span>
-                        <div class="absolute top-[18px] right-[-14px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm">
+                    <div class="relative my-2 flex justify-center items-center">
+                        <span class="font-title text-7xl font-black text-gray-900 leading-none">1</span>
+                        <div class="absolute top-[12px] right-[-14px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm">
                             <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
                                 <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5"></div>
                             </div>
@@ -128,14 +115,14 @@
                             </div>
                         </div>
                     </div>
-                    <span class="font-title text-2xl font-extrabold text-lumoGold mt-2">1° Grado</span>
+                    <span class="font-title text-xl font-bold text-lumoGold mt-2">1° Grado</span>
                 </div>
 
-                <!-- Tarjeta 2° Grado -->
+                <!-- 2° Grado -->
                 <div onclick="selectGrade(2)" class="cursor-pointer bg-white border-[3px] border-gray-900 rounded-3xl p-6 flex flex-col items-center justify-between card-bounce shadow-md">
-                    <div class="relative my-4 flex justify-center items-center">
-                        <span class="font-title text-8xl font-black text-gray-900 leading-none select-none">2</span>
-                        <div class="absolute top-[20px] right-[-10px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm">
+                    <div class="relative my-2 flex justify-center items-center">
+                        <span class="font-title text-7xl font-black text-gray-900 leading-none">2</span>
+                        <div class="absolute top-[14px] right-[-10px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm">
                             <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
                                 <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5"></div>
                             </div>
@@ -144,14 +131,14 @@
                             </div>
                         </div>
                     </div>
-                    <span class="font-title text-2xl font-extrabold text-lumoCrimson mt-2">2° Grado</span>
+                    <span class="font-title text-xl font-bold text-lumoCrimson mt-2">2° Grado</span>
                 </div>
 
-                <!-- Tarjeta 3° Grado -->
+                <!-- 3° Grado -->
                 <div onclick="selectGrade(3)" class="cursor-pointer bg-white border-[3px] border-gray-900 rounded-3xl p-6 flex flex-col items-center justify-between card-bounce shadow-md">
-                    <div class="relative my-4 flex justify-center items-center">
-                        <span class="font-title text-8xl font-black text-gray-900 leading-none select-none">3</span>
-                        <div class="absolute top-[18px] right-[-10px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm">
+                    <div class="relative my-2 flex justify-center items-center">
+                        <span class="font-title text-7xl font-black text-gray-900 leading-none">3</span>
+                        <div class="absolute top-[12px] right-[-10px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm">
                             <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
                                 <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5"></div>
                             </div>
@@ -160,12 +147,12 @@
                             </div>
                         </div>
                     </div>
-                    <span class="font-title text-2xl font-extrabold text-lumoPurple mt-2">3° Grado</span>
+                    <span class="font-title text-xl font-bold text-lumoPurple mt-2">3° Grado</span>
                 </div>
 
             </div>
 
-            <p class="font-title text-sm md:text-base text-gray-600 mt-8">
+            <p class="font-title text-base text-gray-700 mt-8 font-semibold">
                 Selecciona tu grado para ingresar a la plataforma.
             </p>
         </div>
@@ -173,8 +160,8 @@
     </main>
 
     <!-- Pie de página -->
-    <footer class="bg-white border-t py-4 text-center text-xs text-gray-500 font-body">
-        <p>© 2026 LÜMØ Educativo — Arte Digital para Educación Primaria (1°, 2° y 3°).</p>
+    <footer class="py-4 text-center text-xs text-white/80 font-body">
+        <p>© 2026 LÜMØ Educativo — Arte Digital para Educación Primaria.</p>
     </footer>
 
     <script>
@@ -184,7 +171,7 @@
         }
 
         function switchTab(tab) {
-            console.log('Navegando a la sección:', tab);
+            console.log('Navegando a:', tab);
         }
     </script>
 </body>
