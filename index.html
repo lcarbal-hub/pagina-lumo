@@ -86,6 +86,82 @@
                     <i class="fa-solid fa-palette text-lumoBlue text-lg ml-1"></i>
                 </div>
             </div>
+<!-- Encabezado de la hoja -->
+            <div class="mb-10 w-full max-w-md flex flex-col items-center">
+                <p class="font-title text-3xl md:text-5xl font-bold text-[#03658C] mt-2 tracking-tight">
+                    ¡BIENVENIDOS!
+                </p>
+            </div>
+
+            <!-- Contenedor de las 3 tarjetas de grado -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
+                
+                <!-- Tarjeta 1° Grado -->
+                <div onclick="selectGrade(1)" class="cursor-pointer bg-white border-3 border-gray-900 rounded-3xl p-6 flex flex-col items-center justify-between card-hover border-[3px] border-gray-900 shadow-md">
+                    <div class="relative my-4 flex justify-center items-center">
+                        <!-- Número 1 estilo libreta -->
+                        <span class="font-number text-9xl font-black text-gray-900 leading-none select-none">1</span>
+                        
+                        <!-- Ojitos animados integrados -->
+                        <div class="absolute top-[18px] right-[-14px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm eye-container">
+                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5 pupil"></div>
+                            </div>
+                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5 pupil"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="font-title text-2xl font-extrabold text-lumoGold mt-2">1° Grado</span>
+                </div>
+
+                <!-- Tarjeta 2° Grado -->
+                <div onclick="selectGrade(2)" class="cursor-pointer bg-white border-3 border-gray-900 rounded-3xl p-6 flex flex-col items-center justify-between card-hover border-[3px] border-gray-900 shadow-md">
+                    <div class="relative my-4 flex justify-center items-center">
+                        <!-- Número 2 estilo libreta -->
+                        <span class="font-number text-9xl font-black text-gray-900 leading-none select-none">2</span>
+                        
+                        <!-- Ojitos animados integrados -->
+                        <div class="absolute top-[20px] right-[-10px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm eye-container">
+                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5 pupil"></div>
+                            </div>
+                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5 pupil"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="font-title text-2xl font-extrabold text-lumoCrimson mt-2">2° Grado</span>
+                </div>
+
+                <!-- Tarjeta 3° Grado -->
+                <div onclick="selectGrade(3)" class="cursor-pointer bg-white border-3 border-gray-900 rounded-3xl p-6 flex flex-col items-center justify-between card-hover border-[3px] border-gray-900 shadow-md">
+                    <div class="relative my-4 flex justify-center items-center">
+                        <!-- Número 3 estilo libreta -->
+                        <span class="font-number text-9xl font-black text-gray-900 leading-none select-none">3</span>
+                        
+                        <!-- Ojitos animados integrados -->
+                        <div class="absolute top-[18px] right-[-10px] bg-white border-2 border-gray-900 rounded-full px-1 py-0.5 flex items-center gap-1 shadow-sm eye-container">
+                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5 pupil"></div>
+                            </div>
+                            <div class="w-2.5 h-3.5 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-white rounded-full -translate-x-0.5 -translate-y-0.5 pupil"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="font-title text-2xl font-extrabold text-lumoPurple mt-2">3° Grado</span>
+                </div>
+
+            </div>
+
+            <!-- Texto explicativo del pie de la hoja -->
+            <p class="font-title text-sm md:text-base text-gray-600 mt-8">
+                Selecciona tu grado para ingresar a la plataforma.
+            </p>
+        </div>
+
+    </main>
 
             
     <title>LÜMØ - ¡Bienvenidos!</title>
